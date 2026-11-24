@@ -14,6 +14,8 @@ and live lookups for answers that change. Standard library only. Data paths are 
     python3 scripts/civics.py current governor --state ohio           # live from usa.gov
     python3 scripts/civics.py current representative --state OH [--district 3]   # live from clerk.house.gov
     python3 scripts/civics.py current capital --state OH                # data/capitals.json (stable)
+    python3 scripts/civics.py snapshot --progress state/progress.json      # one line for memory
+    python3 scripts/civics.py restore --line "<snapshot>" --salt <salt> --out state/progress.json
     python3 scripts/civics.py validate
 """
 import argparse
@@ -182,6 +184,37 @@ def stats(p, day):
         'mock_rule': r, 'recent_mocks': last_mocks,
         'mock_passes_in_a_row': next((i for i, m in enumerate(reversed(p['mocks'])) if not m['passed']), len(p['mocks'])),
     }
+
+
+def snapshot(p):
+    """Compact line for memory: one digit (Leitner box 0-5) per question in deck order, plus the last study date."""
+    ids = [q['id'] for q in deck(p['version'], p['senior'])]
+    boxes = ''.join(str(p['cards'].get(i, {}).get('box', 0)) for i in ids)
+    last = max((c['last'] for c in p['cards'].values()), default=None)
+    m = ','.join(f"{x['date']}:{x['right']}/{x['asked']}" for x in p['mocks'][-4:])
+    return f"v={p['version']} senior={int(p['senior'])} daily={p['daily']} start={p['start']} interview={p.get('interview') or '-'} last={last or '-'} boxes={boxes} mocks={m or '-'}"
+
+
+def restore(line, salt=None):
+    kv = dict(part.split('=', 1) for part in line.split())
+    senior = kv['senior'] == '1'
+    p = init(kv['v'], senior, int(kv['daily']), kv['start'], None if kv['interview'] == '-' else kv['interview'], salt)
+    ids = [q['id'] for q in deck(kv['v'], senior)]
+    last = None if kv['last'] == '-' else d(kv['last'])
+    for i, b in zip(ids, kv['boxes']):
+        b = int(b)
+        if b and last:
+            p['cards'][i] = {'box': b, 'seen': b, 'right': b - 1, 'last': last.isoformat(),
+                             'due': (last + dt.timedelta(days=BOXES[b])).isoformat()}
+    if kv.get('mocks', '-') != '-':
+        for m in kv['mocks'].split(','):
+            date, score = m.split(':'); right, asked = score.split('/')
+            r = RULES[(kv['v'], senior)]
+            p['mocks'].append({'date': date, 'right': int(right), 'asked': int(asked), 'wrong': int(asked) - int(right),
+                               'passed': int(right) >= r['pass_at']})
+    if last:
+        p['log'].append([last.isoformat(), 'restored', 'r'])
+    return p
 
 
 # ------------------------------------------------------------------ mock test
@@ -364,6 +397,8 @@ def main():
     a.add_argument('--progress'); a.add_argument('--date')
     a = sp.add_parser('current'); a.add_argument('what', choices=['federal', 'senators', 'governor', 'representative', 'capital'])
     a.add_argument('--version', default='2025'); a.add_argument('--state'); a.add_argument('--district')
+    a = sp.add_parser('snapshot'); a.add_argument('--progress', required=True)
+    a = sp.add_parser('restore'); a.add_argument('--line', required=True); a.add_argument('--salt'); a.add_argument('--out', required=True)
     sp.add_parser('validate')
     x = ap.parse_args()
 
@@ -405,6 +440,13 @@ def main():
             out(current_capital(x.state))
         else:
             out(current_representative(x.state, x.district))
+    elif x.cmd == 'snapshot':
+        print(snapshot(json.loads(Path(x.progress).read_text())))
+    elif x.cmd == 'restore':
+        p = restore(x.line, x.salt)
+        Path(x.out).parent.mkdir(parents=True, exist_ok=True)
+        Path(x.out).write_text(json.dumps(p, indent=1))
+        out({'ok': True, 'cards_restored': len(p['cards'])})
     elif x.cmd == 'validate':
         r = validate(); out(r); sys.exit(0 if r['ok'] else 1)
 

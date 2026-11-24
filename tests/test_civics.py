@@ -96,6 +96,17 @@ class Leitner(unittest.TestCase):
         self.assertEqual(len(t['new']), 9)  # 128 cards in 15 days needs 9 a day
         self.assertIsNotNone(t['pace_note'])
 
+    def test_snapshot_roundtrip(self):
+        p = C.init('2025', False, 10, '2026-11-25', salt='t')
+        day = dt.date(2026, 11, 25)
+        for cid in C.today(p, day)['new']:
+            C.record(p, day, cid, 'right')
+        p['mocks'].append({'date': '2026-11-29', 'right': 13, 'wrong': 2, 'asked': 15, 'passed': True})
+        line = C.snapshot(p)
+        q = C.restore(line, 't')
+        self.assertEqual(C.snapshot(q), line)
+        self.assertEqual(C.today(q, day + dt.timedelta(days=2))['reviews'], C.today(p, day + dt.timedelta(days=2))['reviews'])
+
     def test_senior_deck(self):
         p = C.init('2008', True, 5, '2026-11-25', salt='t')
         self.assertEqual(len(p['new_order']), 20)
