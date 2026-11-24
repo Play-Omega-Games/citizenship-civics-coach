@@ -7,12 +7,16 @@ Study aid only. Not legal advice. Not affiliated with or endorsed by USCIS or an
 ## What is here
 
 - `data/questions.json`: all 128 questions of the 2025 civics test (M-1778, 09/25) and all 100 of the 2008 test (rev. 08/21), copied verbatim from the USCIS PDFs with every listed answer and USCIS's bracketed notes. Each question carries `senior_65_20` (USCIS asterisk), `changes_over_time` (listed on USCIS's Check for Test Updates page) and `state_specific` flags.
-- `data/capitals.json`: state and territory capitals (stable facts, fixed table).
+- `data/capitals.json`: state and territory capitals (stable facts, fixed table), each checked against the GPO Style Manual chapter 20 "States, capitals, and counties" (Guam's current name Hagåtña from NASA Space Place). `check_links.py` re-confirms every entry against the live sources.
 - `data/standards.json`: C3 Framework (NCSS) tags with the exact code text, band, the activity that practices it, source and date verified. Each question in `questions.json` lists its tags. The bot supports practice toward these standards; it never claims to meet or cover them. Symbols, holidays, geography and most history recall questions carry no tag on purpose.
 - `scripts/civics.py`: which test applies by N-400 filing date, Leitner boxes, daily sets, mock tests with the official stop rules, Library Card numbers (days, minutes, standards practiced), a printable report, memory snapshot and restore, and live lookups of answers that change.
 - `scripts/build_data.py`: rebuilds `questions.json` from the USCIS PDFs (`pdftotext -layout`).
 - `scripts/check_links.py`: checks every source link live.
 - `tests/test_civics.py`: offline checks (set `CIVICS_SRC` to also check the text is verbatim).
+
+## Daily sets
+
+Each day fills the owner's daily count: due reviews first, then new questions. Day 1 has no reviews, so it is all new. While unseen questions remain, at least a fifth of the count (or the interview pace, if higher) goes to new questions so reviews never crowd them out. With a state set, day 1 starts with a senator or governor question so the live lookup shows up right away. State questions are held until a state is set, and the representative question until a district is checked; held questions are also left out of mock tests.
 
 ## Answers that change
 

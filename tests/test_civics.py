@@ -87,6 +87,23 @@ class Standards(unittest.TestCase):
             self.assertIn(f"{x['code']}. {x['text']}", text, x['code'])
 
 
+class Capitals(unittest.TestCase):
+    CAPS = json.loads((ROOT / 'data' / 'capitals.json').read_text())
+
+    def test_table(self):
+        self.assertEqual(len(self.CAPS['capitals']), 55)
+        self.assertNotIn('usinfo.org', json.dumps(self.CAPS))
+        self.assertTrue(all(u.startswith('https://') for u in self.CAPS['sources']))
+
+    @unittest.skipUnless(os.environ.get('CIVICS_SRC'), 'set CIVICS_SRC for the source check')
+    def test_against_gpo(self):
+        import unicodedata
+        gpo = norm(unicodedata.normalize('NFKC', (Path(os.environ['CIVICS_SRC']) / 'gpo20.txt').read_text()))
+        for st, cap in self.CAPS['capitals'].items():
+            names = [cap] + self.CAPS['also_accepted'].get(st, [])
+            self.assertTrue(any(re.search(rf'\({st}\) \([^)]*\) Capital: {re.escape(n)}', gpo) for n in names), st)
+
+
 class LibraryCard(unittest.TestCase):
     def test_minutes_report_restore(self):
         p = C.init('2025', False, 10, '2026-11-25', salt='t')
@@ -98,7 +115,12 @@ class LibraryCard(unittest.TestCase):
         s = C.stats(p, day)
         self.assertEqual(s['minutes_total'], 99)
         self.assertEqual(s['study_days_total'], 1)
+        C.record(p, day, C.today(p, day + dt.timedelta(days=1))['new'][0], 'wrong')
+        practiced = sum(x['practiced'] for x in C.stats(p, day)['standards'])
+        attempted = sum(len(Q[c]['standards']) for c, v in p['cards'].items() if v['seen'] > 0)
+        self.assertEqual(practiced, attempted)  # practiced counts attempts, right or wrong
         rep = C.report(p, day, 'Test')
+        self.assertIn('attempted at least once', rep)
         self.assertIn('Minutes logged: 99', rep)
         self.assertIn('Not legal advice', rep)
         for dash in ('\u2014', '\u2013'):
@@ -106,6 +128,7 @@ class LibraryCard(unittest.TestCase):
         q = C.restore(C.snapshot(p), 't')
         self.assertEqual(C.stats(q, day)['minutes_total'], 99)
         self.assertEqual(C.stats(q, day)['study_days_total'], 1)
+        self.assertEqual(q['held'], p['held'])
 
 
 class Version(unittest.TestCase):
@@ -120,24 +143,55 @@ class Leitner(unittest.TestCase):
         p = C.init('2025', False, 10, '2026-11-25', salt='t')
         day = dt.date(2026, 11, 25)
         t = C.today(p, day)
-        self.assertEqual(len(t['new']), 5)
+        self.assertEqual(len(t['new']), 10)  # day 1 fills the whole daily count with new cards
         self.assertEqual(t['reviews'], [])
         for cid in t['new']:
             C.record(p, day, cid, 'right')
         self.assertEqual(C.today(p, day + dt.timedelta(days=1))['reviews'], [])
         t2 = C.today(p, day + dt.timedelta(days=2))
-        self.assertEqual(len(t2['reviews']), 5)
+        self.assertEqual(len(t2['reviews']), 8)  # 10 due, 2 slots kept for new cards
+        self.assertEqual(len(t2['new']), 2)
+        self.assertEqual(len(t2['questions']), 10)
         C.record(p, day, t['new'][0], 'wrong')
         self.assertEqual(p['cards'][t['new'][0]]['box'], 1)
         s = C.stats(p, day)
-        self.assertEqual(s['unseen'], 123)
+        self.assertEqual(s['unseen'], 118)
         self.assertEqual(s['streak'], 1)
 
     def test_interview_raises_new(self):
         p = C.init('2025', False, 10, '2026-11-25', interview='2026-12-23', salt='t')
         t = C.today(p, dt.date(2026, 11, 25))
-        self.assertEqual(len(t['new']), 9)  # 128 cards in 15 days needs 9 a day
-        self.assertIsNotNone(t['pace_note'])
+        self.assertEqual(len(t['new']), 10)
+        self.assertIsNone(t['pace_note'])  # 9 a day needed, 10 a day fits
+        p = C.init('2025', False, 5, '2026-11-25', interview='2026-12-23', salt='t')
+        self.assertIsNotNone(C.today(p, dt.date(2026, 11, 25))['pace_note'])
+
+    def test_reviews_never_crowd_out_new(self):
+        p = C.init('2025', False, 10, '2026-11-25', salt='t')
+        day = dt.date(2026, 11, 25)
+        for i in range(6):
+            for cid in C.today(p, day)['reviews'] + C.today(p, day)['new']:
+                C.record(p, day, cid, 'wrong')
+            day += dt.timedelta(days=1)
+        t = C.today(p, day)
+        self.assertGreaterEqual(len(t['new']), 2)
+        self.assertEqual(len(t['questions']), 10)
+
+    def test_state_holds_and_day1_local(self):
+        p = C.init('2025', False, 10, '2026-11-25', salt='t')
+        self.assertEqual(sorted(p['held']), ['2025-023', '2025-029', '2025-061', '2025-062'])
+        self.assertTrue(set(p['held']).isdisjoint(C.today(p, dt.date(2026, 11, 25))['new']))
+        p = C.init('2025', False, 10, '2026-11-25', salt='t', state='OH')
+        self.assertEqual(p['held'], ['2025-029'])
+        first = C.today(p, dt.date(2026, 11, 25))['new']
+        self.assertIn(Q[first[0]]['current_answer_key'], ('senator', 'governor'))
+        p = C.init('2008', False, 10, '2026-11-25', salt='t', state='OH', district='3')
+        self.assertEqual(p['held'], [])
+        self.assertIn(Q[p['new_order'][0]]['current_answer_key'], ('senator', 'governor'))
+        p = C.init('2025', False, 10, '2026-11-25', salt='t')
+        r = C.set_local(p, 'TX', None, 't')
+        self.assertEqual(r['held'], ['2025-029'])
+        self.assertEqual(p['new_order'][0], r['promoted'])
 
     def test_snapshot_roundtrip(self):
         p = C.init('2025', False, 10, '2026-11-25', salt='t')
@@ -172,6 +226,18 @@ class Mock(unittest.TestCase):
         self.assertTrue(s['passed']); self.assertEqual(s['asked'], 10)
         s = C.mock_score('2008', False, 'WWWWW')
         self.assertFalse(s['passed']); self.assertTrue(s['finished'])
+
+    def test_mock_leaves_out_held(self):
+        held = C.state_holds('2025', False, 'OH', None)
+        self.assertEqual(held, ['2025-029'])
+        for seed in range(40):
+            m = C.mock('2025', False, f's{seed}', held)
+            ids = [q['id'] for q in m['questions']]
+            self.assertNotIn('2025-029', ids)
+            self.assertEqual(len(set(ids)), 20)
+        held = C.state_holds('2008', False, 'OH', None)
+        self.assertEqual(held, ['2008-023'])
+        self.assertTrue(all(q['id'] != '2008-023' for s in range(40) for q in C.mock('2008', False, str(s), held)['questions']))
 
     def test_mock_draw(self):
         m = C.mock('2025', False, 'salt-2026-11-29')

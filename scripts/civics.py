@@ -3,10 +3,11 @@ and live lookups for answers that change. Standard library only. Data paths are 
 
     python3 scripts/civics.py version --filed 2025-09-30            # which test applies (or --not-filed)
     python3 scripts/civics.py deck --version 2025 [--senior]
-    python3 scripts/civics.py init --version 2025 [--senior] --daily 10 --start 2026-11-25 [--interview 2027-02-10] --out state/progress.json
+    python3 scripts/civics.py init --version 2025 [--senior] --daily 10 --start 2026-11-25 [--interview 2027-02-10] [--state OH] [--district 3] --out state/progress.json
+    python3 scripts/civics.py set-local --progress state/progress.json --state OH [--district 3]   # state or district added later
     python3 scripts/civics.py today --progress state/progress.json --date 2026-11-25
     python3 scripts/civics.py record --progress state/progress.json --date 2026-11-25 --id 2025-038 --result right|wrong
-    python3 scripts/civics.py mock --version 2025 [--senior] --seed <salt>-<date>
+    python3 scripts/civics.py mock --version 2025 [--senior] --seed <salt>-<date> --progress state/progress.json
     python3 scripts/civics.py mock-score --version 2025 [--senior] --results "RRWRR..."
     python3 scripts/civics.py stats --progress state/progress.json --date 2026-11-25
     python3 scripts/civics.py current federal --version 2025          # live from uscis.gov/citizenship/testupdates
@@ -98,47 +99,84 @@ def which_version(filed=None):
 
 
 # ------------------------------------------------------------------ Leitner progress
-def init(version, senior, daily, start, interview=None, salt=None):
+LOCAL_KEYS = ('senator', 'governor')  # changing answers that need the owner's state
+REP_KEY = 'representative'
+
+
+def state_holds(version, senior, state=None, district=None):
+    """Questions to hold back: every state question without a state, the representative question without a district."""
+    held = []
+    for q in deck(version, senior):
+        if q['flags']['state_specific'] and not state:
+            held.append(q['id'])
+        elif q['current_answer_key'] == REP_KEY and not district:
+            held.append(q['id'])
+    return held
+
+
+def init(version, senior, daily, start, interview=None, salt=None, state=None, district=None):
     order = [q['id'] for q in deck(version, senior)]
     rng_for(salt or 'order', version, senior).shuffle(order)
-    return {'version': version, 'senior': senior, 'daily': daily, 'start': start, 'interview': interview,
-            'new_order': order, 'cards': {}, 'log': [], 'mocks': [], 'sessions': []}
+    p = {'version': version, 'senior': senior, 'daily': daily, 'start': start, 'interview': interview,
+         'new_order': order, 'cards': {}, 'log': [], 'mocks': [], 'sessions': [],
+         'held': state_holds(version, senior, state, district)}
+    if state:
+        promote_local(p, salt)
+    return p
+
+
+def promote_local(p, salt=None):
+    """Put one senator or governor question first in line, so the live lookup shows up in the next set."""
+    local = [q['id'] for q in deck(p['version'], p['senior'])
+             if q['current_answer_key'] in LOCAL_KEYS and q['id'] not in p['cards'] and q['id'] not in p.get('held', [])]
+    if not local:
+        return None
+    pick = sorted(local)[rng_for(salt or 'local', p['version']).randrange(len(local))]
+    p['new_order'].remove(pick)
+    p['new_order'].insert(0, pick)
+    return pick
+
+
+def set_local(p, state=None, district=None, salt=None):
+    """Owner added or changed state or district after setup: release holds and promote a local question."""
+    p['held'] = state_holds(p['version'], p['senior'], state, district)
+    return {'held': p['held'], 'promoted': promote_local(p, salt) if state else None}
 
 
 def due(p, day):
-    return sorted((cid for cid, c in p['cards'].items() if d(c['due']) <= day),
+    held = set(p.get('held', []))
+    return sorted((cid for cid, c in p['cards'].items() if d(c['due']) <= day and cid not in held),
                   key=lambda cid: (p['cards'][cid]['box'], p['cards'][cid]['due'], cid))
 
 
-def new_per_day(p, day):
-    """New cards per day: a share of the daily count, raised so every card is seen at least 14 days before the interview."""
-    left = [cid for cid in p['new_order'] if cid not in p['cards']]
-    base = max(1, p['daily'] // 2)
-    if p.get('interview') and left:
-        days = (d(p['interview']) - dt.timedelta(days=14) - day).days + 1
-        if days > 0:
-            need = -(-len(left) // days)
-            base = max(base, need)
-        else:
-            base = max(base, len(left))  # inside two weeks: introduce everything still unseen, reviews come first
-    return min(base, len(left)), left
+def interview_need(p, day, left):
+    """New cards a day needed so every card is introduced at least 14 days before the interview."""
+    if not (p.get('interview') and left):
+        return 0
+    days = (d(p['interview']) - dt.timedelta(days=14) - day).days + 1
+    return -(-len(left) // days) if days > 0 else len(left)
 
 
 def today(p, day):
-    reviews = due(p, day)
-    n_new, left = new_per_day(p, day)
+    """Fill the daily count every day: reviews first, then new cards.
+    Day 1 has no reviews, so it is all new. While unseen cards remain, at least a fifth of the count
+    (or the interview pace, if higher) is kept for new cards so reviews never crowd them out."""
+    held = set(p.get('held', []))
     cap = p['daily']
-    picked = reviews[:cap]
-    room = max(0, cap - len(picked))
-    fresh = left[:min(n_new, room)] if room else []
+    reviews = due(p, day)
+    left = [cid for cid in p['new_order'] if cid not in p['cards'] and cid not in held]
+    need = interview_need(p, day, left)
+    keep_new = min(len(left), cap, max(max(1, cap // 5) if left else 0, need))
+    picked = reviews[:cap - keep_new]
+    fresh = left[:min(len(left), cap - len(picked))]
     warn = None
-    if p.get('interview') and n_new > max(1, p['daily'] // 2):
-        warn = (f'To see every question at least two weeks before your interview, {n_new} new questions a day are needed. '
+    if need > cap:
+        warn = (f'To see every question at least two weeks before your interview, {need} new questions a day are needed. '
                 f'A bigger daily count would help.')
     qs = {q['id']: q for q in deck(p['version'], p['senior'])}
     return {'date': day.isoformat(), 'reviews': picked, 'new': fresh,
             'questions': [qs[i] for i in picked + fresh], 'reviews_waiting': max(0, len(reviews) - len(picked)),
-            'unseen_left': len(left), 'pace_note': warn}
+            'unseen_left': len(left), 'held': sorted(held), 'pace_note': warn}
 
 
 def record(p, day, cid, result):
@@ -171,7 +209,7 @@ def standards_practiced(p):
                                        'activity': std[code]['activity'], 'questions': 0, 'practiced': 0, 'solid': 0})
             r['questions'] += 1
             c = p['cards'].get(q['id'])
-            if c and c.get('right', 0) > 0:
+            if c and c.get('seen', 0) > 0:  # attempted at least once, right or wrong
                 r['practiced'] += 1
             if c and c['box'] >= 4:
                 r['solid'] += 1
@@ -225,13 +263,14 @@ def snapshot(p):
     days = len({x['date'] for x in p.get('sessions', [])} | {e[0] for e in p['log'] if e[1] != 'restored'}) + p.get('restored_days', 0)
     mins = sum(x['minutes'] for x in p.get('sessions', [])) + p.get('restored_minutes', 0)
     return (f"v={p['version']} senior={int(p['senior'])} daily={p['daily']} start={p['start']} interview={p.get('interview') or '-'} "
-            f"last={last or '-'} days={days} minutes={mins} boxes={boxes} mocks={m or '-'}")
+            f"last={last or '-'} days={days} minutes={mins} held={','.join(p.get('held', [])) or '-'} boxes={boxes} mocks={m or '-'}")
 
 
 def restore(line, salt=None):
     kv = dict(part.split('=', 1) for part in line.split())
     senior = kv['senior'] == '1'
     p = init(kv['v'], senior, int(kv['daily']), kv['start'], None if kv['interview'] == '-' else kv['interview'], salt)
+    p['held'] = [] if kv.get('held', '-') == '-' else kv['held'].split(',')
     ids = [q['id'] for q in deck(kv['v'], senior)]
     last = None if kv['last'] == '-' else d(kv['last'])
     for i, b in zip(ids, kv['boxes']):
@@ -268,19 +307,21 @@ def report(p, day, name=None):
     else:
         lines.append('None yet.')
     lines += ['', '## Standards practiced (C3 Framework, supports practice toward)']
-    lines += [f"- {x['code']}: {x['text']} ({x['practiced']} of {x['questions']} questions practiced, {x['solid']} solid)" for x in st['standards']]
+    lines += [f"- {x['code']}: {x['text']} ({x['practiced']} of {x['questions']} practiced (attempted at least once), {x['solid']} solid (box 4 or 5))" for x in st['standards']]
     lines += ['', 'Study aid only. Not legal advice. Not affiliated with or endorsed by USCIS or any government agency.',
               'Questions: official USCIS civics test list (uscis.gov/citizenship). Standards: C3 Framework, NCSS (socialstudies.org/standards/c3).']
     return '\n'.join(lines) + '\n'
 
 
 # ------------------------------------------------------------------ mock test
-def mock(version, senior, seed):
+def mock(version, senior, seed, held=()):
+    """Held questions (state questions without a state, the representative question without a district)
+    are left out and the draw comes from the rest of the list."""
     r = RULES[(version, senior)]
-    pool = deck(version, senior)
+    pool = [q for q in deck(version, senior) if q['id'] not in set(held)]
     rng = rng_for('mock', seed, version, senior)
     picked = rng.sample(pool, r['asked'])
-    return {'version': version, 'senior': senior, 'rule': r, 'questions': picked,
+    return {'version': version, 'senior': senior, 'rule': r, 'questions': picked, 'left_out': sorted(held),
             'note': 'Questions are picked at random. The real test is drawn by a USCIS system and asked aloud by an officer.'}
 
 
@@ -390,7 +431,8 @@ def current_capital(state):
     if st == 'DC':
         return {'state': 'DC', 'capital': None, 'answer': 'D.C. is not a state and does not have a capital (official answer note).'}
     caps = json.loads((ROOT / 'data' / 'capitals.json').read_text())
-    return {'state': st, 'capital': caps['capitals'][st], 'note': caps['note'], 'sources': caps['sources']}
+    return {'state': st, 'capital': caps['capitals'][st], 'also_accepted': caps.get('also_accepted', {}).get(st, []),
+            'note': caps['note'], 'sources': caps['sources']}
 
 
 def current_representative(state, district=None):
@@ -450,11 +492,15 @@ def main():
     a = sp.add_parser('init'); a.add_argument('--version', required=True); a.add_argument('--senior', action='store_true')
     a.add_argument('--daily', type=int, required=True); a.add_argument('--start', required=True)
     a.add_argument('--interview'); a.add_argument('--salt'); a.add_argument('--out', required=True)
+    a.add_argument('--state'); a.add_argument('--district', help="district number, 'at-large', or 'name' when the owner gave a checked name")
+    a = sp.add_parser('set-local'); a.add_argument('--progress', required=True); a.add_argument('--state'); a.add_argument('--district'); a.add_argument('--salt')
     for name in ('today', 'stats'):
         a = sp.add_parser(name); a.add_argument('--progress', required=True); a.add_argument('--date', required=True)
     a = sp.add_parser('record'); a.add_argument('--progress', required=True); a.add_argument('--date', required=True)
     a.add_argument('--id', required=True); a.add_argument('--result', choices=['right', 'wrong'], required=True)
     a = sp.add_parser('mock'); a.add_argument('--version', required=True); a.add_argument('--senior', action='store_true'); a.add_argument('--seed', required=True)
+    a.add_argument('--progress', help='leave out questions held in this progress file')
+    a.add_argument('--state'); a.add_argument('--district')
     a = sp.add_parser('mock-score'); a.add_argument('--version', required=True); a.add_argument('--senior', action='store_true'); a.add_argument('--results', required=True)
     a.add_argument('--progress'); a.add_argument('--date')
     a = sp.add_parser('current'); a.add_argument('what', choices=['federal', 'senators', 'governor', 'representative', 'capital'])
@@ -472,10 +518,15 @@ def main():
     elif x.cmd == 'deck':
         out([{'id': q['id'], 'question': q['question']} for q in deck(x.version, x.senior)])
     elif x.cmd == 'init':
-        p = init(x.version, x.senior, x.daily, x.start, x.interview, x.salt)
+        p = init(x.version, x.senior, x.daily, x.start, x.interview, x.salt, x.state, x.district)
         Path(x.out).parent.mkdir(parents=True, exist_ok=True)
         Path(x.out).write_text(json.dumps(p, indent=1))
-        out({'ok': True, 'questions': len(p['new_order'])})
+        out({'ok': True, 'questions': len(p['new_order']), 'held': p['held'], 'first_new': p['new_order'][0]})
+    elif x.cmd == 'set-local':
+        p = json.loads(Path(x.progress).read_text())
+        r = set_local(p, x.state, x.district, x.salt)
+        Path(x.progress).write_text(json.dumps(p, indent=1))
+        out(r)
     elif x.cmd == 'today':
         out(today(json.loads(Path(x.progress).read_text()), d(x.date)))
     elif x.cmd == 'stats':
@@ -486,7 +537,11 @@ def main():
         Path(x.progress).write_text(json.dumps(p, indent=1))
         out({'id': x.id, **c})
     elif x.cmd == 'mock':
-        out(mock(x.version, x.senior, x.seed))
+        if x.progress:
+            held = json.loads(Path(x.progress).read_text()).get('held', [])
+        else:
+            held = state_holds(x.version, x.senior, x.state, x.district)
+        out(mock(x.version, x.senior, x.seed, held))
     elif x.cmd == 'mock-score':
         s = mock_score(x.version, x.senior, x.results)
         if x.progress and s['finished']:

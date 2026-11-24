@@ -1,8 +1,8 @@
 {
- "note": "State and territory capitals. These are stable (the last state to move its capital was Oklahoma, in 1910), so they are kept here; officeholders are never kept here. D.C. is not a state and has no capital (official USCIS answer note).",
+ "note": "State and territory capitals. These are stable (the last state to move its capital was Oklahoma, in 1910), so they are kept here as a fixed table; officeholders are never kept here. D.C. is not a state and has no capital (official USCIS answer note). Every entry is checked against the U.S. Government Publishing Office Style Manual (2016), chapter 20, \"States, capitals, and counties\". Guam: the GPO manual uses the older name Agana; the current name Hagåtña is confirmed by NASA Space Place and the Census Bureau, and both names are accepted.",
  "sources": [
-  "https://usinfo.org/usia/usinfo.state.gov/products/pubs/geography/capitals.htm",
-  "https://www.usa.gov/state-governments"
+  "https://www.govinfo.gov/content/pkg/GPO-STYLEMANUAL-2016/pdf/GPO-STYLEMANUAL-2016-20.pdf",
+  "https://spaceplace.nasa.gov/nasainthe50states/"
  ],
  "capitals": {
   "AL": "Montgomery",
@@ -60,5 +60,13 @@
   "VI": "Charlotte Amalie",
   "AS": "Pago Pago",
   "MP": "Saipan"
+ },
+ "also_accepted": {
+  "GU": [
+   "Agana"
+  ],
+  "MN": [
+   "Saint Paul"
+  ]
  }
 }

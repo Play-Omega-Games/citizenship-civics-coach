@@ -36,6 +36,35 @@ def all_links():
     return list(dict.fromkeys(links))
 
 
+def verify_capitals():
+    """Confirm every capital in data/capitals.json appears in the official source text (needs pdftotext)."""
+    import html, shutil, subprocess, tempfile, unicodedata, re
+    caps = json.loads((ROOT / 'data' / 'capitals.json').read_text())
+    if not shutil.which('pdftotext'):
+        print('SKIP capitals content check (pdftotext not installed)')
+        return 0
+    with tempfile.TemporaryDirectory() as td:
+        pdf = Path(td) / 'gpo.pdf'
+        req = urllib.request.Request(caps['sources'][0], headers={'User-Agent': 'Mozilla/5.0'})
+        pdf.write_bytes(urllib.request.urlopen(req, timeout=60).read())
+        subprocess.run(['pdftotext', str(pdf), str(pdf) + '.txt'], check=True)
+        gpo = unicodedata.normalize('NFKC', (Path(str(pdf) + '.txt')).read_text())
+    req = urllib.request.Request(caps['sources'][1], headers={'User-Agent': 'Mozilla/5.0'})
+    nasa = unicodedata.normalize('NFKC', urllib.request.urlopen(req, timeout=60).read().decode('utf-8', 'replace'))
+    gpo = re.sub(r'\s+', ' ', gpo)
+    bad = 0
+    for st, cap in caps['capitals'].items():
+        names = [cap] + caps.get('also_accepted', {}).get(st, [])
+        ok = any(f'({st}) ' in gpo and re.search(rf'\({st}\) \([^)]*\) Capital: {re.escape(n)}', gpo) for n in names)
+        if st == 'GU':  # current name, from NASA Space Place
+            ok = ok and cap in unicodedata.normalize('NFKC', html.unescape(nasa))
+        if not ok:
+            bad += 1
+            print('BAD capital', st, cap)
+    print(f'capitals: {len(caps["capitals"]) - bad}/{len(caps["capitals"])} confirmed in official sources')
+    return bad
+
+
 def check(url):
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; CitizenshipCivicsCoach/1.0)'})
     try:
@@ -53,4 +82,5 @@ if __name__ == '__main__':
         bad += not ok
         print('OK ' if ok else 'BAD', code, u, '' if final == u else f'-> {final}')
     print(f'{len(all_links()) - bad}/{len(all_links())} live')
+    bad += verify_capitals()
     sys.exit(1 if bad else 0)
