@@ -1,0 +1,72 @@
+{
+ "note": "Tags name the activity that practices the skill. Each bot supports practice toward a standard; it never claims to meet or cover it. Code text is copied from the official C3 Framework PDF (NCSS, rev. 0617). USCIS test content is the official federal question list, not a standards framework.",
+ "not_tagged": "Symbols, holidays, geography and most American history recall questions carry no C3 tag: a recall drill does not practice the C3 history skills (sourcing, chronology analysis), so tags were dropped rather than stretched. D2.His.1.6-8 (shown as a candidate on the curriculum Page) was dropped for this reason.",
+ "standards": [
+  {
+   "framework": "C3",
+   "code": "D2.Civ.2.6-8",
+   "band": "6-8",
+   "text": "Explain specific roles played by citizens (such as voters, jurors, taxpayers, members of the armed forces, petitioners, protesters, and office-holders).",
+   "activity": "Rights and responsibilities questions (roles of citizens: voting, jury service, taxes, military service)",
+   "wording": "supports practice toward",
+   "source": "https://www.socialstudies.org/standards/c3",
+   "document": "https://www.socialstudies.org/system/files/2022/c3-framework-for-social-studies-rev0617.2.pdf",
+   "verified": "2026-11-24"
+  },
+  {
+   "framework": "C3",
+   "code": "D2.Civ.2.9-12",
+   "band": "9-12",
+   "text": "Analyze the role of citizens in the U.S. political system, with attention to various theories of democracy, changes in Americans’ participation over time, and alternative models from other countries, past and present.",
+   "activity": "Rights and responsibilities questions",
+   "wording": "supports practice toward",
+   "source": "https://www.socialstudies.org/standards/c3",
+   "document": "https://www.socialstudies.org/system/files/2022/c3-framework-for-social-studies-rev0617.2.pdf",
+   "verified": "2026-11-24"
+  },
+  {
+   "framework": "C3",
+   "code": "D2.Civ.3.6-8",
+   "band": "6-8",
+   "text": "Examine the origins, purposes, and impact of constitutions, laws, treaties, and international agreements.",
+   "activity": "Constitution and amendments questions",
+   "wording": "supports practice toward",
+   "source": "https://www.socialstudies.org/standards/c3",
+   "document": "https://www.socialstudies.org/system/files/2022/c3-framework-for-social-studies-rev0617.2.pdf",
+   "verified": "2026-11-24"
+  },
+  {
+   "framework": "C3",
+   "code": "D2.Civ.4.6-8",
+   "band": "6-8",
+   "text": "Explain the powers and limits of the three branches of government, public officials, and bureaucracies at different levels in the United States and in other countries.",
+   "activity": "System of government questions",
+   "wording": "supports practice toward",
+   "source": "https://www.socialstudies.org/standards/c3",
+   "document": "https://www.socialstudies.org/system/files/2022/c3-framework-for-social-studies-rev0617.2.pdf",
+   "verified": "2026-11-24"
+  },
+  {
+   "framework": "C3",
+   "code": "D2.Civ.5.6-8",
+   "band": "6-8",
+   "text": "Explain the origins, functions, and structure of government with reference to the U.S. Constitution, state constitutions, and selected other systems of government.",
+   "activity": "Principles of American government questions",
+   "wording": "supports practice toward",
+   "source": "https://www.socialstudies.org/standards/c3",
+   "document": "https://www.socialstudies.org/system/files/2022/c3-framework-for-social-studies-rev0617.2.pdf",
+   "verified": "2026-11-24"
+  },
+  {
+   "framework": "C3",
+   "code": "D2.His.14.6-8",
+   "band": "6-8",
+   "text": "Explain multiple causes and effects of events and developments in the past.",
+   "activity": "American history questions that ask why something happened",
+   "wording": "supports practice toward",
+   "source": "https://www.socialstudies.org/standards/c3",
+   "document": "https://www.socialstudies.org/system/files/2022/c3-framework-for-social-studies-rev0617.2.pdf",
+   "verified": "2026-11-24"
+  }
+ ]
+}

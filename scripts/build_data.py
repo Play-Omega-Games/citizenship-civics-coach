@@ -113,9 +113,31 @@ def parse(version):
             },
             "current_answer_key": CHANGES[version].get(n),
         })
+        out[-1]["standards"] = standards_for(out[-1])
     if len(out) != cfg["expected"]:
         raise SystemExit(f"{version}: parsed {len(out)} questions, expected {cfg['expected']}")
     return out
+
+
+CIV3 = re.compile(r"Constitution|amendment|Bill of Rights|Declaration of Independence|documents?\b", re.I)
+CAUSE = re.compile(r"\b(why|reasons?|problem that led)\b", re.I)
+
+
+def standards_for(q):
+    """C3 tags by activity (see data/standards.json). Only clear fits; anything unclear gets no tag."""
+    tags = []
+    sec, part = q["section"], q["part"]
+    if sec.startswith("Principles of American"):
+        tags.append("D2.Civ.5.6-8")
+    if sec == "System of Government":
+        tags.append("D2.Civ.4.6-8")
+    if sec == "Rights and Responsibilities":
+        tags += ["D2.Civ.2.6-8", "D2.Civ.2.9-12"]
+    if CIV3.search(q["question"]) and part == "American Government":
+        tags.append("D2.Civ.3.6-8")
+    if part == "American History" and CAUSE.search(q["question"]) and "important" not in q["question"]:
+        tags.append("D2.His.14.6-8")
+    return tags
 
 
 def sha(p):

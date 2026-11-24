@@ -38,7 +38,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2025-002",
@@ -56,7 +59,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2025-003",
@@ -77,7 +83,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-004",
@@ -99,7 +109,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-005",
@@ -118,7 +132,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-006",
@@ -137,7 +155,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-007",
@@ -155,7 +177,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-008",
@@ -176,7 +202,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-009",
@@ -194,7 +224,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-010",
@@ -217,7 +251,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-011",
@@ -235,7 +273,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-012",
@@ -254,7 +296,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2025-013",
@@ -275,7 +320,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2025-014",
@@ -300,7 +348,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-015",
@@ -320,7 +372,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2025-016",
@@ -339,7 +394,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-017",
@@ -357,7 +415,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-018",
@@ -377,7 +438,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-019",
@@ -395,7 +459,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-020",
@@ -415,7 +482,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-021",
@@ -433,7 +503,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-022",
@@ -451,7 +524,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-023",
@@ -471,7 +547,10 @@
     "changes_over_time": true,
     "state_specific": true
    },
-   "current_answer_key": "senator"
+   "current_answer_key": "senator",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-024",
@@ -489,7 +568,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-025",
@@ -507,7 +589,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-026",
@@ -525,7 +610,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-027",
@@ -543,7 +631,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-028",
@@ -562,7 +653,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-029",
@@ -582,7 +676,10 @@
     "changes_over_time": true,
     "state_specific": true
    },
-   "current_answer_key": "representative"
+   "current_answer_key": "representative",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-030",
@@ -600,7 +697,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "speaker"
+   "current_answer_key": "speaker",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-031",
@@ -619,7 +719,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-032",
@@ -637,7 +740,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-033",
@@ -658,7 +764,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-034",
@@ -676,7 +785,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-035",
@@ -696,7 +808,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-036",
@@ -714,7 +829,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-037",
@@ -733,7 +851,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-038",
@@ -751,7 +872,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "president"
+   "current_answer_key": "president",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-039",
@@ -769,7 +893,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "vice_president"
+   "current_answer_key": "vice_president",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-040",
@@ -787,7 +914,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-041",
@@ -810,7 +940,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-042",
@@ -828,7 +961,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-043",
@@ -846,7 +982,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-044",
@@ -864,7 +1003,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-045",
@@ -882,7 +1024,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-046",
@@ -902,7 +1047,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-047",
@@ -920,7 +1068,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-048",
@@ -959,7 +1110,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-049",
@@ -978,7 +1132,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-050",
@@ -997,7 +1154,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-051",
@@ -1018,7 +1178,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-052",
@@ -1036,7 +1199,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-053",
@@ -1054,7 +1220,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-054",
@@ -1072,7 +1241,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-055",
@@ -1092,7 +1264,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-056",
@@ -1111,7 +1286,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-057",
@@ -1129,7 +1307,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "chief_justice"
+   "current_answer_key": "chief_justice",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-058",
@@ -1152,7 +1333,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-059",
@@ -1174,7 +1358,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-060",
@@ -1192,7 +1379,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-061",
@@ -1212,7 +1403,10 @@
     "changes_over_time": true,
     "state_specific": true
    },
-   "current_answer_key": "governor"
+   "current_answer_key": "governor",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-062",
@@ -1232,7 +1426,10 @@
     "changes_over_time": false,
     "state_specific": true
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2025-063",
@@ -1253,7 +1450,12 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2025-064",
@@ -1273,7 +1475,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-065",
@@ -1296,7 +1502,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-066",
@@ -1315,7 +1525,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-067",
@@ -1338,7 +1552,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-068",
@@ -1358,7 +1576,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-069",
@@ -1385,7 +1607,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-070",
@@ -1408,7 +1634,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-071",
@@ -1429,7 +1659,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-072",
@@ -1449,7 +1683,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2025-073",
@@ -1471,7 +1709,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2025-074",
@@ -1490,7 +1731,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-075",
@@ -1509,7 +1751,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-076",
@@ -1529,7 +1772,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-077",
@@ -1556,7 +1800,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2025-078",
@@ -1574,7 +1821,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-079",
@@ -1592,7 +1840,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-080",
@@ -1615,7 +1864,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-081",
@@ -1645,7 +1895,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-082",
@@ -1663,7 +1914,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-083",
@@ -1684,7 +1936,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-084",
@@ -1703,7 +1956,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-085",
@@ -1725,7 +1979,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-086",
@@ -1746,7 +2001,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-087",
@@ -1769,7 +2025,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-088",
@@ -1790,7 +2047,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-089",
@@ -1812,7 +2070,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-090",
@@ -1831,7 +2090,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-091",
@@ -1852,7 +2112,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-092",
@@ -1870,7 +2131,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-093",
@@ -1895,7 +2157,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-094",
@@ -1917,7 +2180,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-095",
@@ -1938,7 +2202,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-096",
@@ -1956,7 +2221,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-097",
@@ -1974,7 +2240,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-098",
@@ -1995,7 +2262,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-099",
@@ -2018,7 +2286,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-100",
@@ -2040,7 +2309,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-101",
@@ -2060,7 +2330,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2025-102",
@@ -2080,7 +2353,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-103",
@@ -2098,7 +2372,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-104",
@@ -2117,7 +2392,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-105",
@@ -2135,7 +2411,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-106",
@@ -2156,7 +2433,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2025-107",
@@ -2177,7 +2457,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-108",
@@ -2197,7 +2478,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-109",
@@ -2216,7 +2498,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-110",
@@ -2234,7 +2517,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2025-111",
@@ -2252,7 +2538,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2025-112",
@@ -2270,7 +2559,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-113",
@@ -2290,7 +2580,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-114",
@@ -2308,7 +2599,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2025-115",
@@ -2329,7 +2623,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-116",
@@ -2349,7 +2644,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-117",
@@ -2393,7 +2689,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-118",
@@ -2417,7 +2714,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-119",
@@ -2435,7 +2733,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-120",
@@ -2456,7 +2755,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-121",
@@ -2475,7 +2775,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-122",
@@ -2495,7 +2796,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-123",
@@ -2513,7 +2815,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-124",
@@ -2532,7 +2835,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-125",
@@ -2551,7 +2855,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-126",
@@ -2579,7 +2884,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-127",
@@ -2597,7 +2903,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2025-128",
@@ -2616,7 +2923,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-001",
@@ -2634,7 +2942,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2008-002",
@@ -2654,7 +2965,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-003",
@@ -2672,7 +2987,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-004",
@@ -2691,7 +3010,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-005",
@@ -2709,7 +3032,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-006",
@@ -2731,7 +3058,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-007",
@@ -2749,7 +3080,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-008",
@@ -2769,7 +3104,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-009",
@@ -2789,7 +3128,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-010",
@@ -2807,7 +3150,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2008-011",
@@ -2826,7 +3172,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2008-012",
@@ -2847,7 +3196,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.5.6-8"
+   ]
   },
   {
    "id": "2008-013",
@@ -2870,7 +3222,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-014",
@@ -2889,7 +3244,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-015",
@@ -2907,7 +3265,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-016",
@@ -2927,7 +3288,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-017",
@@ -2945,7 +3309,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-018",
@@ -2963,7 +3330,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-019",
@@ -2981,7 +3351,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-020",
@@ -3001,7 +3374,10 @@
     "changes_over_time": true,
     "state_specific": true
    },
-   "current_answer_key": "senator"
+   "current_answer_key": "senator",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-021",
@@ -3019,7 +3395,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-022",
@@ -3037,7 +3416,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-023",
@@ -3057,7 +3439,10 @@
     "changes_over_time": true,
     "state_specific": true
    },
-   "current_answer_key": "representative"
+   "current_answer_key": "representative",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-024",
@@ -3075,7 +3460,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-025",
@@ -3095,7 +3483,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-026",
@@ -3113,7 +3504,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-027",
@@ -3131,7 +3525,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-028",
@@ -3149,7 +3546,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "president"
+   "current_answer_key": "president",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-029",
@@ -3167,7 +3567,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "vice_president"
+   "current_answer_key": "vice_president",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-030",
@@ -3185,7 +3588,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-031",
@@ -3203,7 +3609,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-032",
@@ -3221,7 +3630,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-033",
@@ -3239,7 +3651,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-034",
@@ -3257,7 +3672,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-035",
@@ -3275,7 +3693,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-036",
@@ -3308,7 +3729,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-037",
@@ -3329,7 +3753,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-038",
@@ -3347,7 +3774,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-039",
@@ -3365,7 +3795,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "justices_count"
+   "current_answer_key": "justices_count",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-040",
@@ -3383,7 +3816,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "chief_justice"
+   "current_answer_key": "chief_justice",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-041",
@@ -3404,7 +3840,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-042",
@@ -3426,7 +3866,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-043",
@@ -3446,7 +3890,10 @@
     "changes_over_time": true,
     "state_specific": true
    },
-   "current_answer_key": "governor"
+   "current_answer_key": "governor",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-044",
@@ -3466,7 +3913,10 @@
     "changes_over_time": false,
     "state_specific": true
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-045",
@@ -3484,7 +3934,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-046",
@@ -3502,7 +3955,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "president_party"
+   "current_answer_key": "president_party",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-047",
@@ -3520,7 +3976,10 @@
     "changes_over_time": true,
     "state_specific": false
    },
-   "current_answer_key": "speaker"
+   "current_answer_key": "speaker",
+   "standards": [
+    "D2.Civ.4.6-8"
+   ]
   },
   {
    "id": "2008-048",
@@ -3541,7 +4000,12 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12",
+    "D2.Civ.3.6-8"
+   ]
   },
   {
    "id": "2008-049",
@@ -3560,7 +4024,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-050",
@@ -3579,7 +4047,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-051",
@@ -3602,7 +4074,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-052",
@@ -3621,7 +4097,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-053",
@@ -3644,7 +4124,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-054",
@@ -3662,7 +4146,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-055",
@@ -3689,7 +4177,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-056",
@@ -3707,7 +4199,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-057",
@@ -3726,7 +4222,11 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.Civ.2.6-8",
+    "D2.Civ.2.9-12"
+   ]
   },
   {
    "id": "2008-058",
@@ -3749,7 +4249,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2008-059",
@@ -3768,7 +4271,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-060",
@@ -3787,7 +4291,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-061",
@@ -3807,7 +4312,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2008-062",
@@ -3825,7 +4333,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-063",
@@ -3843,7 +4352,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-064",
@@ -3873,7 +4383,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-065",
@@ -3892,7 +4403,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-066",
@@ -3910,7 +4422,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-067",
@@ -3931,7 +4444,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-068",
@@ -3953,7 +4467,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-069",
@@ -3971,7 +4486,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-070",
@@ -3989,7 +4505,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-071",
@@ -4008,7 +4525,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-072",
@@ -4029,7 +4547,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-073",
@@ -4048,7 +4567,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-074",
@@ -4068,7 +4588,10 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": [
+    "D2.His.14.6-8"
+   ]
   },
   {
    "id": "2008-075",
@@ -4088,7 +4611,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-076",
@@ -4109,7 +4633,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-077",
@@ -4128,7 +4653,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-078",
@@ -4150,7 +4676,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-079",
@@ -4168,7 +4695,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-080",
@@ -4186,7 +4714,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-081",
@@ -4204,7 +4733,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-082",
@@ -4222,7 +4752,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-083",
@@ -4240,7 +4771,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-084",
@@ -4258,7 +4790,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-085",
@@ -4277,7 +4810,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-086",
@@ -4295,7 +4829,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-087",
@@ -4336,7 +4871,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-088",
@@ -4355,7 +4891,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-089",
@@ -4373,7 +4910,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-090",
@@ -4391,7 +4929,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-091",
@@ -4413,7 +4952,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-092",
@@ -4443,7 +4983,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-093",
@@ -4464,7 +5005,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-094",
@@ -4482,7 +5024,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-095",
@@ -4503,7 +5046,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-096",
@@ -4522,7 +5066,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-097",
@@ -4542,7 +5087,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-098",
@@ -4560,7 +5106,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-099",
@@ -4578,7 +5125,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   },
   {
    "id": "2008-100",
@@ -4606,7 +5154,8 @@
     "changes_over_time": false,
     "state_specific": false
    },
-   "current_answer_key": null
+   "current_answer_key": null,
+   "standards": []
   }
  ]
 }

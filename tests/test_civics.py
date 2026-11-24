@@ -65,6 +65,49 @@ class Data(unittest.TestCase):
                     self.assertIn(a, text, q['id'])
 
 
+class Standards(unittest.TestCase):
+    STD = json.loads((ROOT / 'data' / 'standards.json').read_text())
+
+    def test_tags_known_and_honest(self):
+        codes = {x['code'] for x in self.STD['standards']}
+        self.assertEqual(codes, {'D2.Civ.2.6-8', 'D2.Civ.2.9-12', 'D2.Civ.3.6-8', 'D2.Civ.4.6-8', 'D2.Civ.5.6-8', 'D2.His.14.6-8'})
+        for x in self.STD['standards']:
+            self.assertEqual(x['wording'], 'supports practice toward')
+            self.assertEqual(x['framework'], 'C3')
+            self.assertTrue(x['verified'])
+        for q in DATA['questions']:
+            self.assertTrue(set(q['standards']) <= codes, q['id'])
+            if q['section'] in ('Symbols', 'Holidays', 'Geography'):
+                self.assertEqual(q['standards'], [], q['id'])
+
+    @unittest.skipUnless(os.environ.get('CIVICS_SRC'), 'set CIVICS_SRC for the verbatim check')
+    def test_c3_text_verbatim(self):
+        text = norm((Path(os.environ['CIVICS_SRC']) / 'c3.txt').read_text())
+        for x in self.STD['standards']:
+            self.assertIn(f"{x['code']}. {x['text']}", text, x['code'])
+
+
+class LibraryCard(unittest.TestCase):
+    def test_minutes_report_restore(self):
+        p = C.init('2025', False, 10, '2026-11-25', salt='t')
+        day = dt.date(2026, 11, 25)
+        for cid in C.today(p, day)['new']:
+            C.record(p, day, cid, 'right')
+        C.log_session(p, day, 9, 'drill')
+        C.log_session(p, day, 500, 'extra')
+        s = C.stats(p, day)
+        self.assertEqual(s['minutes_total'], 99)
+        self.assertEqual(s['study_days_total'], 1)
+        rep = C.report(p, day, 'Test')
+        self.assertIn('Minutes logged: 99', rep)
+        self.assertIn('Not legal advice', rep)
+        for dash in ('\u2014', '\u2013'):
+            self.assertNotIn(dash, rep)
+        q = C.restore(C.snapshot(p), 't')
+        self.assertEqual(C.stats(q, day)['minutes_total'], 99)
+        self.assertEqual(C.stats(q, day)['study_days_total'], 1)
+
+
 class Version(unittest.TestCase):
     def test_cutoff(self):
         self.assertEqual(C.which_version('2025-10-19')['version'], '2008')

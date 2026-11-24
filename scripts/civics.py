@@ -14,6 +14,8 @@ and live lookups for answers that change. Standard library only. Data paths are 
     python3 scripts/civics.py current governor --state ohio           # live from usa.gov
     python3 scripts/civics.py current representative --state OH [--district 3]   # live from clerk.house.gov
     python3 scripts/civics.py current capital --state OH                # data/capitals.json (stable)
+    python3 scripts/civics.py log-session --progress state/progress.json --date 2026-11-25 --minutes 9 --kind drill
+    python3 scripts/civics.py report --progress state/progress.json --date 2026-11-29     # printable report (Markdown)
     python3 scripts/civics.py snapshot --progress state/progress.json      # one line for memory
     python3 scripts/civics.py restore --line "<snapshot>" --salt <salt> --out state/progress.json
     python3 scripts/civics.py validate
@@ -100,7 +102,7 @@ def init(version, senior, daily, start, interview=None, salt=None):
     order = [q['id'] for q in deck(version, senior)]
     rng_for(salt or 'order', version, senior).shuffle(order)
     return {'version': version, 'senior': senior, 'daily': daily, 'start': start, 'interview': interview,
-            'new_order': order, 'cards': {}, 'log': [], 'mocks': []}
+            'new_order': order, 'cards': {}, 'log': [], 'mocks': [], 'sessions': []}
 
 
 def due(p, day):
@@ -154,6 +156,28 @@ def record(p, day, cid, result):
     return c
 
 
+def log_session(p, day, minutes, kind):
+    """Minutes come from the chat: first question sent to last answer, rounded up, capped at 90. Never estimated."""
+    p.setdefault('sessions', []).append({'date': day.isoformat(), 'minutes': max(1, min(90, int(minutes))), 'kind': kind})
+    return p['sessions'][-1]
+
+
+def standards_practiced(p):
+    std = {s['code']: s for s in json.loads((ROOT / 'data' / 'standards.json').read_text())['standards']}
+    rows = {}
+    for q in deck(p['version'], p['senior']):
+        for code in q.get('standards', []):
+            r = rows.setdefault(code, {'code': code, 'text': std[code]['text'], 'band': std[code]['band'],
+                                       'activity': std[code]['activity'], 'questions': 0, 'practiced': 0, 'solid': 0})
+            r['questions'] += 1
+            c = p['cards'].get(q['id'])
+            if c and c.get('right', 0) > 0:
+                r['practiced'] += 1
+            if c and c['box'] >= 4:
+                r['solid'] += 1
+    return list(rows.values())
+
+
 def stats(p, day):
     qs = deck(p['version'], p['senior'])
     boxes = {b: 0 for b in range(0, 6)}
@@ -182,6 +206,12 @@ def stats(p, day):
         'due_tomorrow': len(due(p, day + dt.timedelta(days=1))),
         'days_to_interview': (d(p['interview']) - day).days if p.get('interview') else None,
         'mock_rule': r, 'recent_mocks': last_mocks,
+        'mastered': boxes[5],  # Library Card "collected": questions in box 5
+        'days_log': sorted({x['date'] for x in p.get('sessions', [])} | set(days)),
+        'study_days_total': len({x['date'] for x in p.get('sessions', [])} | {e[0] for e in p['log'] if e[1] != 'restored'}) + p.get('restored_days', 0),
+        'minutes_total': sum(x['minutes'] for x in p.get('sessions', [])) + p.get('restored_minutes', 0),
+        'minutes_last_7': sum(x['minutes'] for x in p.get('sessions', []) if (day - d(x['date'])).days < 7),
+        'standards': standards_practiced(p),
         'mock_passes_in_a_row': next((i for i, m in enumerate(reversed(p['mocks'])) if not m['passed']), len(p['mocks'])),
     }
 
@@ -192,7 +222,10 @@ def snapshot(p):
     boxes = ''.join(str(p['cards'].get(i, {}).get('box', 0)) for i in ids)
     last = max((c['last'] for c in p['cards'].values()), default=None)
     m = ','.join(f"{x['date']}:{x['right']}/{x['asked']}" for x in p['mocks'][-4:])
-    return f"v={p['version']} senior={int(p['senior'])} daily={p['daily']} start={p['start']} interview={p.get('interview') or '-'} last={last or '-'} boxes={boxes} mocks={m or '-'}"
+    days = len({x['date'] for x in p.get('sessions', [])} | {e[0] for e in p['log'] if e[1] != 'restored'}) + p.get('restored_days', 0)
+    mins = sum(x['minutes'] for x in p.get('sessions', [])) + p.get('restored_minutes', 0)
+    return (f"v={p['version']} senior={int(p['senior'])} daily={p['daily']} start={p['start']} interview={p.get('interview') or '-'} "
+            f"last={last or '-'} days={days} minutes={mins} boxes={boxes} mocks={m or '-'}")
 
 
 def restore(line, salt=None):
@@ -214,7 +247,31 @@ def restore(line, salt=None):
                                'passed': int(right) >= r['pass_at']})
     if last:
         p['log'].append([last.isoformat(), 'restored', 'r'])
+    p['restored_days'] = int(kv.get('days', 0))
+    p['restored_minutes'] = int(kv.get('minutes', 0))
     return p
+
+
+def report(p, day, name=None):
+    """Printable progress report (Markdown) from the Library Card numbers."""
+    st = stats(p, day)
+    r = st['mock_rule']
+    lines = [f"# Civics study report{(' for ' + name) if name else ''}", '',
+             f"Test: {p['version']} civics test{' (65/20 list)' if p['senior'] else ''}. Report date: {day.isoformat()}.", '',
+             '## Attendance', f"- Study days: {st['study_days_total']}", f"- Minutes logged: {st['minutes_total']}", '',
+             '## Progress', f"- Questions in plan: {st['total']}", f"- Not seen yet: {st['unseen']}",
+             f"- Solid (box 4 or 5): {st['solid']}", f"- Mastered (box 5): {st['mastered']}", '',
+             '## Practice tests', f"Rule: up to {r['asked']} asked, pass at {r['pass_at']} right.", '']
+    if p['mocks']:
+        lines += ['| Date | Right | Wrong | Asked | Passed |', '|---|---|---|---|---|']
+        lines += [f"| {m['date']} | {m['right']} | {m['wrong']} | {m['asked']} | {'yes' if m['passed'] else 'no'} |" for m in p['mocks']]
+    else:
+        lines.append('None yet.')
+    lines += ['', '## Standards practiced (C3 Framework, supports practice toward)']
+    lines += [f"- {x['code']}: {x['text']} ({x['practiced']} of {x['questions']} questions practiced, {x['solid']} solid)" for x in st['standards']]
+    lines += ['', 'Study aid only. Not legal advice. Not affiliated with or endorsed by USCIS or any government agency.',
+              'Questions: official USCIS civics test list (uscis.gov/citizenship). Standards: C3 Framework, NCSS (socialstudies.org/standards/c3).']
+    return '\n'.join(lines) + '\n'
 
 
 # ------------------------------------------------------------------ mock test
@@ -373,6 +430,11 @@ def validate():
                 errs.append(q['id'] + ' has no answers')
             if q['flags']['changes_over_time'] and not q['current_answer_key']:
                 errs.append(q['id'] + ' changes over time but has no lookup key')
+    std = {x['code'] for x in json.loads((ROOT / 'data' / 'standards.json').read_text())['standards']}
+    for q in data['questions']:
+        for code in q.get('standards', []):
+            if code not in std:
+                errs.append(f"{q['id']} tag {code} not in standards.json")
     for k in RULES.values():
         if not (k['pass_at'] + k['fail_at'] == k['asked'] + 1):
             errs.append(f'rule {k} stop points do not add up')
@@ -397,6 +459,9 @@ def main():
     a.add_argument('--progress'); a.add_argument('--date')
     a = sp.add_parser('current'); a.add_argument('what', choices=['federal', 'senators', 'governor', 'representative', 'capital'])
     a.add_argument('--version', default='2025'); a.add_argument('--state'); a.add_argument('--district')
+    a = sp.add_parser('log-session'); a.add_argument('--progress', required=True); a.add_argument('--date', required=True)
+    a.add_argument('--minutes', type=int, required=True); a.add_argument('--kind', choices=['drill', 'mock', 'extra'], default='drill')
+    a = sp.add_parser('report'); a.add_argument('--progress', required=True); a.add_argument('--date', required=True); a.add_argument('--name')
     a = sp.add_parser('snapshot'); a.add_argument('--progress', required=True)
     a = sp.add_parser('restore'); a.add_argument('--line', required=True); a.add_argument('--salt'); a.add_argument('--out', required=True)
     sp.add_parser('validate')
@@ -440,6 +505,12 @@ def main():
             out(current_capital(x.state))
         else:
             out(current_representative(x.state, x.district))
+    elif x.cmd == 'log-session':
+        p = json.loads(Path(x.progress).read_text())
+        out(log_session(p, d(x.date), x.minutes, x.kind))
+        Path(x.progress).write_text(json.dumps(p, indent=1))
+    elif x.cmd == 'report':
+        print(report(json.loads(Path(x.progress).read_text()), d(x.date), x.name), end='')
     elif x.cmd == 'snapshot':
         print(snapshot(json.loads(Path(x.progress).read_text())))
     elif x.cmd == 'restore':

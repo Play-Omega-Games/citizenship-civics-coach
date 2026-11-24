@@ -23,12 +23,16 @@ LINKS = [
     'https://www.usa.gov/state-governments',
     'https://www.bia.gov/',
 ]
+# Next shelf card targets (x.ai/bot store pages). Checked separately: x.ai may answer bots with a challenge page.
+NEXT_SHELF = ['https://x.ai/bot/OiJ2yft0AxrfrCdRAgFYu', 'https://x.ai/bot/k232Uq3GOPgOdh63JWIWp']
 
 
 def all_links():
     data = json.loads((ROOT / 'data' / 'questions.json').read_text())
     caps = json.loads((ROOT / 'data' / 'capitals.json').read_text())
-    links = list(LINKS) + [v['source_url'] for v in data['versions'].values()] + caps['sources']
+    std = json.loads((ROOT / 'data' / 'standards.json').read_text())
+    links = (list(LINKS) + [v['source_url'] for v in data['versions'].values()] + caps['sources']
+             + [x['source'] for x in std['standards']] + [x['document'] for x in std['standards']] + NEXT_SHELF)
     return list(dict.fromkeys(links))
 
 

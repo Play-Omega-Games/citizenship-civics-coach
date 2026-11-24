@@ -7,8 +7,9 @@ Study aid only. Not legal advice. Not affiliated with or endorsed by USCIS or an
 ## What is here
 
 - `data/questions.json`: all 128 questions of the 2025 civics test (M-1778, 09/25) and all 100 of the 2008 test (rev. 08/21), copied verbatim from the USCIS PDFs with every listed answer and USCIS's bracketed notes. Each question carries `senior_65_20` (USCIS asterisk), `changes_over_time` (listed on USCIS's Check for Test Updates page) and `state_specific` flags.
-- `data/capitals.json`: state and territory capitals (stable facts).
-- `scripts/civics.py`: which test applies by N-400 filing date, Leitner boxes, daily sets, mock tests with the official stop rules, readiness numbers, and live lookups of answers that change.
+- `data/capitals.json`: state and territory capitals (stable facts, fixed table).
+- `data/standards.json`: C3 Framework (NCSS) tags with the exact code text, band, the activity that practices it, source and date verified. Each question in `questions.json` lists its tags. The bot supports practice toward these standards; it never claims to meet or cover them. Symbols, holidays, geography and most history recall questions carry no tag on purpose.
+- `scripts/civics.py`: which test applies by N-400 filing date, Leitner boxes, daily sets, mock tests with the official stop rules, Library Card numbers (days, minutes, standards practiced), a printable report, memory snapshot and restore, and live lookups of answers that change.
 - `scripts/build_data.py`: rebuilds `questions.json` from the USCIS PDFs (`pdftotext -layout`).
 - `scripts/check_links.py`: checks every source link live.
 - `tests/test_civics.py`: offline checks (set `CIVICS_SRC` to also check the text is verbatim).
@@ -40,6 +41,11 @@ python3 scripts/check_links.py
 ```
 
 A bot loads every file listed in `MANIFEST.txt` and checks each SHA-256.
+
+## Roadmap
+
+- v1.1: classroom mode (one teacher, many students). Planned, not built.
+- Later: English reading and writing test practice (USCIS vocabulary lists).
 
 ## License
 
